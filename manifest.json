@@ -1,54 +1,58 @@
 {
   "required_api_version": "^2.0.0",
   "name": "Password Generator",
-  "description": "Signed Password Generator",
-  "developer_name": "Reza Karami",
+  "description": "Deterministic password generator with auto-clear clipboard",
+  "developer_name": "Reza Karami (Enhanced by Tomek Zdarowski)",
   "icon": "images/icon.png",
   "options": {
     "query_debounce": 0.1
   },
   "preferences": [
     {
-      "id": "kw",
-      "type": "keyword",
-      "name": "Password Generator",
-      "default_value": "pg"
-    },
-    {
       "id": "password_namespace",
       "type": "input",
       "name": "Password Generator Namespace",
+      "description": "Unique namespace for password generation (keep this secret!)",
       "default_value": ""
     },
     {
-      "id": "password_header",
+      "id": "password_header", 
       "type": "input",
       "name": "Password Header",
+      "description": "Header prefix for password generation (keep this secret!)",
       "default_value": ""
     },
     {
       "id": "charlist",
       "type": "select",
-      "name": "Default Charlist",
-      "default_value": "all",
-      "options" : [
+      "name": "Default Character Set",
+      "description": "Default character set for password generation",
+      "options": [
         {
-          "value" : "all",
-          "text" : "lowerupper-alphanumeric + special chars"
+          "value": "all",
+          "text": "All characters (letters, numbers, symbols)"
         },
         {
-          "value" : "alphanumeric",
-          "text" : "lowerupper-alphanumeric"
+          "value": "alphanumeric", 
+          "text": "Alphanumeric (letters + numbers)"
         },
         {
-          "value" : "loweralphanumeric",
-          "text" : "lower-alphanumeric"
+          "value": "loweralphanumeric",
+          "text": "Lowercase alphanumeric"
         },
         {
-          "value" : "alphabets",
-          "text" : "lowerupper-alphabets"
+          "value": "alphabets",
+          "text": "Letters only"
         }
-      ]
+      ],
+      "default_value": "all"
+    },
+    {
+      "id": "default_clear_timeout",
+      "type": "input",
+      "name": "Default Clipboard Clear Timeout (seconds)",
+      "description": "How long to keep password in clipboard before auto-clearing (default: 10)",
+      "default_value": "10"
     }
   ]
 }
